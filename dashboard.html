@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RDV — Tableau de bord</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Mes rendez-vous</h1>
+    <button id="logout-btn">Se déconnecter</button>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Nouveau rendez-vous</h2>
+      <form id="new-appointment-form">
+        <label>Début <input type="datetime-local" id="start" required /></label>
+        <label>Durée (min) <input type="number" id="duration" value="30" min="5" step="5" required /></label>
+        <label>Notes <textarea id="notes" placeholder="Facultatif"></textarea></label>
+        <button type="submit">Ajouter</button>
+      </form>
+      <p id="form-msg" class="msg"></p>
+    </section>
+
+    <section class="card">
+      <h2>Liste</h2>
+      <table class="table" id="list">
+        <thead>
+          <tr><th>Début</th><th>Fin</th><th>Statut</th><th>Notes</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- SDK Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./assets/config.js"></script>
+  <script src="./assets/dashboard.js" defer></script>
+</body>
+</html>

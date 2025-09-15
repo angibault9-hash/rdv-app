@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RDV — Connexion / Inscription</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Prise de rendez-vous</h1>
+
+    <section class="card">
+      <h2>Connexion</h2>
+      <form id="signin-form">
+        <label>Email <input type="email" id="signin-email" required /></label>
+        <label>Mot de passe <input type="password" id="signin-password" required minlength="6" /></label>
+        <button type="submit">Se connecter</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Inscription</h2>
+      <form id="signup-form">
+        <label>Email <input type="email" id="signup-email" required /></label>
+        <label>Mot de passe <input type="password" id="signup-password" required minlength="6" /></label>
+        <button type="submit">Créer un compte</button>
+      </form>
+    </section>
+
+    <p id="msg" class="msg"></p>
+  </main>
+
+  <!-- SDK Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./assets/config.js"></script>
+  <script src="./assets/app.js" defer></script>
+</body>
+</html>
