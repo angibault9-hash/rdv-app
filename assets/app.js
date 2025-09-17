@@ -43,4 +43,3 @@ if (signupForm) {
       msg.textContent = `✅ Compte créé. Vérifie tes emails si la confirmation est activée.`;
     }
   });
-}

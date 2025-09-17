@@ -112,5 +112,3 @@ async function del(id) {
     alert('Erreur: ' + error.message);
   } else {
     await refreshList();
-  }
-}
