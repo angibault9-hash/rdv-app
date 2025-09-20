@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon profil • RDV App</title>
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body class="dashboard-page">
+  <aside class="sidebar">
+    <div class="brand">RDV App</div>
+    <nav class="nav">
+      <a href="dashboard.html" class="nav-link">Tableau de bord</a>
+      <a href="profile.html" class="nav-link active">Mon profil</a>
+      <button id="logout-btn" class="nav-link logout">Se déconnecter</button>
+    </nav>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <h1>Mon profil</h1>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <div class="card-header">
+          <h2>Informations personnelles</h2>
+        </div>
+        <form id="profile-form" class="form-grid">
+          <div class="input-group span-2">
+            <label for="full-name">Nom complet</label>
+            <input type="text" id="full-name" placeholder="Votre nom et prénom" />
+          </div>
+          <div class="actions span-2">
+            <button type="submit" class="btn primary">Mettre à jour</button>
+          </div>
+        </form>
+        <div id="profile-msg" class="msg" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./assets/config.js"></script>
+  <script src="./assets/profile.js" defer></script>
+</body>
+</html>
