@@ -3,41 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RDV — dashboard</title>
+  <title>Dashboard - Mes Rendez-vous</title>
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
-<body>
-  <header class="topbar">
-    <h1>Mes rendez-vous</h1>
-    <button id="logout-btn">Se déconnecter</button>
+<body class="dashboard-page">
+  <header class="dashboard-header">
+    <div class="header-content">
+      <div class="header-title">
+        <h1>📅 Mes Rendez-vous</h1>
+        <p>Gérez vos rendez-vous facilement</p>
+      </div>
+      <button id="logout-btn" class="logout-btn">
+        <span>👋</span>
+        Se déconnecter
+      </button>
+    </div>
   </header>
 
-  <main class="container">
-    <section class="card">
-      <h2>Nouveau rendez-vous</h2>
-      <form id="new-appointment-form">
-        <label>Début <input type="datetime-local" id="start" required /></label>
-        <label>Durée (min) <input type="number" id="duration" value="30" min="5" step="5" required /></label>
-        <label>Notes <textarea id="notes" placeholder="Facultatif"></textarea></label>
-        <button type="submit">Ajouter</button>
+  <main class="dashboard-container">
+    <section class="dashboard-card">
+      <div class="card-header">
+        <h2>➕ Nouveau rendez-vous</h2>
+        <p>Planifiez un nouveau rendez-vous</p>
+      </div>
+      <form id="new-appointment-form" class="appointment-form">
+        <div class="form-row">
+          <div class="input-group">
+            <label for="start">Date et heure de début</label>
+            <input type="datetime-local" id="start" required />
+          </div>
+          <div class="input-group">
+            <label for="duration">Durée (minutes)</label>
+            <input type="number" id="duration" value="30" min="5" step="5" required />
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="notes">Notes (facultatif)</label>
+          <textarea id="notes" placeholder="Ajoutez des détails sur ce rendez-vous..." rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn-primary">
+          <span>✅</span>
+          Ajouter le rendez-vous
+        </button>
       </form>
-      <p id="form-msg" class="msg"></p>
+      <div id="form-msg" class="message"></div>
     </section>
 
-    <section class="card">
-      <h2>Liste des rendez-vous</h2>
-      <table class="table" id="list">
-        <thead>
-          <tr>
-            <th>Début</th>
-            <th>Fin</th>
-            <th>Statut</th>
-            <th>Notes</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <section class="dashboard-card">
+      <div class="card-header">
+        <h2>📋 Liste des rendez-vous</h2>
+        <p>Tous vos rendez-vous planifiés</p>
+      </div>
+      <div class="table-container">
+        <table class="appointments-table" id="list">
+          <thead>
+            <tr>
+              <th>📅 Début</th>
+              <th>⏰ Fin</th>
+              <th>📊 Statut</th>
+              <th>📝 Notes</th>
+              <th>⚙️ Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
     </section>
   </main>
 
@@ -46,3 +76,4 @@
   <script src="./assets/config.js"></script>
   <script src="./assets/dashboard.js" defer></script>
 </body>
+</html>
