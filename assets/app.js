@@ -4,6 +4,8 @@ const supabaseClient = supabase.createClient(window.SUPABASE_URL, window.SUPABAS
 const msg = document.getElementById('msg');
 const signinForm = document.getElementById('signin-form');
 const signupForm = document.getElementById('signup-form');
+const signupLink = document.getElementById('signup-link');
+const signupSection = document.getElementById('signup-section');
 
 // Vérifier si déjà connecté → rediriger vers dashboard
 (async () => {
@@ -12,6 +14,19 @@ const signupForm = document.getElementById('signup-form');
     window.location.href = 'dashboard.html';
   }
 })();
+
+// Gestion du menu déroulant pour l'inscription
+if (signupLink && signupSection) {
+  signupLink.addEventListener('click', () => {
+    if (signupSection.style.display === 'none') {
+      signupSection.style.display = 'block';
+      signupLink.textContent = 'Masquer le formulaire d\'inscription';
+    } else {
+      signupSection.style.display = 'none';
+      signupLink.textContent = 'Créer un compte';
+    }
+  });
+}
 
 // Connexion
 if (signinForm) {
@@ -41,5 +56,11 @@ if (signupForm) {
       msg.textContent = `❌ Erreur inscription: ${error.message}`;
     } else {
       msg.textContent = `✅ Compte créé. Vérifie tes emails si la confirmation est activée.`;
+      // Masquer le formulaire d'inscription après création réussie
+      if (signupSection) {
+        signupSection.style.display = 'none';
+        signupLink.textContent = 'Créer un compte';
+      }
     }
   });
+}

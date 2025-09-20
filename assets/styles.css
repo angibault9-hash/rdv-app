@@ -68,6 +68,16 @@ button:hover {
   margin-top: 0.5rem;
 }
 
+/* Lien cliquable */
+.link {
+  color: #2563eb;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.link:hover {
+  color: #1d4ed8;
+}
+
 /* Tableau */
 .table {
   width: 100%;
@@ -86,3 +96,4 @@ button.danger {
 }
 button.danger:hover {
   background: #b91c1c;
+}

@@ -19,14 +19,17 @@
       </form>
     </section>
 
-    <section class="card">
-      <h2>Inscription</h2>
-      <form id="signup-form">
-        <label>Email <input type="email" id="signup-email" required /></label>
-        <label>Mot de passe <input type="password" id="signup-password" required minlength="6" /></label>
-        <button type="submit">Créer un compte</button>
-      </form>
-    </section>
+    <div class="signup-toggle">
+      <p>Pas encore de compte test ? <span id="signup-link" class="link">Créer un compte</span></p>
+      <section class="card" id="signup-section" style="display: none;">
+        <h2>Inscription</h2>
+        <form id="signup-form">
+          <label>Email <input type="email" id="signup-email" required /></label>
+          <label>Mot de passe <input type="password" id="signup-password" required minlength="6" /></label>
+          <button type="submit">Créer un compte</button>
+        </form>
+      </section>
+    </div>
 
     <p id="msg" class="msg"></p>
   </main>
