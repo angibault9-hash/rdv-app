@@ -3,30 +3,57 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RDV — Connexion / Inscription</title>
+  <title>RDV Pro — Connexion / Inscription</title>
   <link rel="stylesheet" href="./assets/styles.css" />
 </head>
 <body>
+  <!-- Section héro -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>✨ Bienvenue sur RDV Pro</h1>
+      <p class="hero-subtitle">Gérez vos rendez-vous en toute simplicité</p>
+      <p class="hero-description">Connectez-vous ou créez votre compte pour commencer à organiser vos rendez-vous professionnels.</p>
+    </div>
+  </section>
+
   <main class="container">
-    <h1>Prise de rendez-vous</h1>
+    <div class="auth-forms">
+      <section class="card signin-card">
+        <div class="card-header">
+          <h2>🔑 Connexion</h2>
+          <p>Accédez à votre espace personnel</p>
+        </div>
+        <form id="signin-form">
+          <label>
+            <span>Email</span>
+            <input type="email" id="signin-email" required placeholder="votre@email.com" />
+          </label>
+          <label>
+            <span>Mot de passe</span>
+            <input type="password" id="signin-password" required minlength="6" placeholder="••••••••" />
+          </label>
+          <button type="submit" class="btn-primary">Se connecter</button>
+        </form>
+      </section>
 
-    <section class="card">
-      <h2>Connexion</h2>
-      <form id="signin-form">
-        <label>Email <input type="email" id="signin-email" required /></label>
-        <label>Mot de passe <input type="password" id="signin-password" required minlength="6" /></label>
-        <button type="submit">Se connecter</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2>Inscription</h2>
-      <form id="signup-form">
-        <label>Email <input type="email" id="signup-email" required /></label>
-        <label>Mot de passe <input type="password" id="signup-password" required minlength="6" /></label>
-        <button type="submit">Créer un compte</button>
-      </form>
-    </section>
+      <section class="card signup-card">
+        <div class="card-header">
+          <h2>✨ Inscription</h2>
+          <p>Créez votre compte gratuitement</p>
+        </div>
+        <form id="signup-form">
+          <label>
+            <span>Email</span>
+            <input type="email" id="signup-email" required placeholder="votre@email.com" />
+          </label>
+          <label>
+            <span>Mot de passe</span>
+            <input type="password" id="signup-password" required minlength="6" placeholder="••••••••" />
+          </label>
+          <button type="submit" class="btn-secondary">Créer un compte</button>
+        </form>
+      </section>
+    </div>
 
     <p id="msg" class="msg"></p>
   </main>

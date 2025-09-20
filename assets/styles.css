@@ -1,26 +1,113 @@
 /* Style global */
 body {
-  font-family: Arial, sans-serif;
-  background: #f5f7fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   margin: 0;
   padding: 0;
   color: #333;
+  min-height: 100vh;
+}
+
+/* Section héro */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.hero-description {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 /* Conteneur central */
 .container {
-  max-width: 800px;
-  margin: 2rem auto;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 1rem;
+}
+
+/* Conteneur des formulaires d'authentification */
+.auth-forms {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .auth-forms {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
 }
 
 /* Cartes (sections) */
 .card {
   background: #fff;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card-header h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card-header p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Distinction visuelle entre les cartes */
+.signin-card {
+  border-top: 4px solid #2563eb;
+}
+
+.signup-card {
+  border-top: 4px solid #10b981;
 }
 
 /* Titres */
@@ -32,24 +119,80 @@ h1, h2 {
 /* Formulaires */
 form label {
   display: block;
-  margin: 0.75rem 0;
+  margin: 1rem 0;
 }
-input, textarea, button {
+
+form label span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+input, textarea {
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
   box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+/* Boutons */
 button {
-  background: #2563eb;
-  color: #fff;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
-button:hover {
-  background: #1d4ed8;
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+}
+
+/* Compatibilité avec les anciens boutons */
+button:not(.btn-primary):not(.btn-secondary):not(.danger) {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff;
+}
+
+button:not(.btn-primary):not(.btn-secondary):not(.danger):hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
 }
 
 /* Barre du haut */
@@ -65,7 +208,13 @@ button:hover {
 /* Messages */
 .msg {
   color: #2563eb;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #eff6ff;
+  border-left: 4px solid #2563eb;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* Tableau */
